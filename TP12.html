@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For U</title>
+</head>
+<body>
+    <div class="container">
+        <h3>I have a crush on U 🤍</h3>
+        <h4> Do u love me ?</h4>
+        <div class="Butt">
+            <button class="yes" onclick="hideAndCreateContainer()">Yes</button>
+            <button class="no">No</button>
+        </div>
+    </div>
+    <style>
+        .container{
+            background-color:wheat;
+            width: 300px;
+            height: 180px;
+            text-align: center;
+            border-radius: 10px
+        }
+        h3{
+            margin-top: 10%;
+            color: cornflowerblue;
+            text-align: center;
+            font-weight: 400;
+        }
+        h4{
+            text-align: center;
+            color:coral;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-color: floralwhite;
+        }
+        button{
+            width: 75px;
+            border: 1px rgb(43, 242, 106) solid;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.1s ease;
+        }
+        .Butt{
+            display: flex;
+            justify-content: center;
+            column-gap: 25px;
+
+        }
+        .yes:hover {
+            cursor: pointer;
+            position: relative;
+            background-color:aquamarine;
+            top: -5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector(".container");
+            const noButton = document.querySelector(".no");
+
+            noButton.addEventListener("mouseenter", function() {
+                // Get container dimensions
+                const containerRect = container.getBoundingClientRect();
+                const containerWidth = containerRect.width;
+                const containerHeight = containerRect.height;
+
+                // Calculate random coordinates within container
+                const randomX = Math.random() * (containerWidth - 100); // Adjust 100 according to button width
+                const randomY = Math.random() * (containerHeight - 50); // Adjust 50 according to button height
+
+                // Translate button to random position
+                noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            });
+        });
+
+        function hideContainer() {
+            const container = document.querySelector(".container");
+            container.classList.add("hidden");
+        }
+
+        function hideAndCreateContainer() {
+            hideContainer(); // hide the existing container
+            createNewContainer(); // create a new container
+        }
+
+        function createNewContainer() {
+            // Create a new container element
+            const newContainer = document.createElement('div');
+            newContainer.classList.add('container');
+            
+            // Create new content for the container
+            const h3 = document.createElement('h3');
+            h3.textContent = "Haha Prank 😱😂😂😂";
+
+            const h4 = document.createElement('h4');
+            h4.textContent = "អគុណសំណាងល្អនៅពេលក្រោយ​​?​😁";
+
+            // Append the new content to the container
+            newContainer.appendChild(h3);
+            newContainer.appendChild(h4);
+
+            // Append the new container to the body
+            document.body.appendChild(newContainer);
+        }
+    </script>
+
+</body>
+</html>
